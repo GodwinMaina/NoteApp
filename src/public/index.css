@@ -1,16 +1,38 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    background: #66da6a;
+    justify-content: space-between;
+    cursor: pointer;
+    display: flex;
+    margin: 10px;
+
+}
+
+.navbar h2{
+    font-size: 25px;
+    color:#ffff;
+    margin: 20px;
+
+}
+
+.login{
+    display: flex;
+    margin: 10px;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     width: 1200px;
+    margin-top: 100px;
+    margin-inline:40px ;
+
 
 }
 
@@ -20,6 +42,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 40%;
+    max-height: 320px;
+    min-width:400px;
 }
 
 h2 {
@@ -27,6 +51,7 @@ h2 {
     text-align: center;
 }
 
+/* form */
 form {
     display: flex;
     flex-direction: column;
@@ -56,54 +81,159 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-.notes-container {
-    width: 45%;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+/* container for note */
+.notesCont{
 
-
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-left: 30px;
+    justify-content: center;
+    align-items: start;
 }
 
-.notes {
-    
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.note {
-   
-    border-bottom: 1px solid black;
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.edit-btn{
-    color: blue;
-    border: #ddd;
-    cursor: pointer;
+.noteContainer a{
+    font-weight: bold;
+    color: #fff;
     font-size: 20px;
+}
+
+.noteContainer{
+   margin: 20px;
+   border: 2px solid white;
+   width:25vw;
+   background-color: rgb(111, 196, 111);
+   border-radius: 30px;
+   text-align: center;
+   min-height: 45vh;
+   font-size: 15px;
+   padding: 20px;
+   cursor: pointer;
+
+
+}
+
+.noteContainer h3{
+
+    font-size: 20px;
+    word-wrap: break-word;
+    text-align: start;
+    color: white;
+}
+
+.noteContainer button{
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: row;
+    margin:10px;
+    word-wrap:break-word;
+    text-align: start;
+    color:black;
+    border: 20px;
     border-radius: 20px;
-}
-
-.delete-btn{
-    color: red;
-    border: white;
     cursor: pointer;
-    font-size: 20px;
-       border-radius: 20px;
+    
 }
 
-.postflex{
-    display: flex;
-    justify-content: space-between;
+
+.edit-btn:hover{
+    background: blue;
+    color: white;
+   
+    
+   
+}
+
+.delete-btn:hover{
+    background-color: red;
+    color:white; 
+}
+
+/* single note styles */
+.noteContainerId{
     margin: 20px;
+    border: 2px solid white;
+    width:25vw;
+    background-color: rgb(111, 196, 111);
+    border-radius: 30px;
+    font-size: 15px;
+    padding: 20px;
+    cursor: pointer;
+    margin: 30px;
+    position: relative;
+    left: 30rem;
+    top: 5rem;
+    text-align: start;
+    font-size: 30px;
+  
+ }
+
+ 
+.noteContainerId h3{
+    font-size: 20px;
+    word-wrap: break-word;
+    text-align: start;
+    color: white;
+}
+
+.noteContainerId a{
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+}
+
+.noteContainerId h3{
+    font-size: 20px;
+    word-wrap: break-word;
+    text-align: start;
+    color: white;
+}
+
+.noteContainerId button{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: row;
+    margin:10px;
+    word-wrap:break-word;
+    text-align: start;
+    color:black;
+    border: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .notesCont{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+    .noteContainer{
+       width:55vw;
+       background-color: rgb(111, 196, 111);
+    
+    }
+
+    .noteContainerId{
+        border: 2px solid white;
+        position: absolute;
+        left: 5rem;
+        width: 50vw;
+        min-height: 40vh;
+        text-align: center;
+        font-size: 30px;
+      
+     }
+ 
 }
