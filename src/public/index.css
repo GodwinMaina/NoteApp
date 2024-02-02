@@ -60,21 +60,50 @@ input[type="submit"]:hover {
     width: 45%;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
 
 }
 
 .notes {
-    max-height: 00px;
+    
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
+    cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .note {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
+   
+    border-bottom: 1px solid black;
     padding: 10px;
+    cursor: pointer;
     margin-bottom: 10px;
     border-radius: 4px;
+}
+
+.edit-btn{
+    color: blue;
+    border: #ddd;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.delete-btn{
+    color: red;
+    border: white;
+    cursor: pointer;
+    font-size: 20px;
+       border-radius: 20px;
+}
+
+.postflex{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
 }

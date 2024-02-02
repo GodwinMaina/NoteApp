@@ -3,48 +3,59 @@ const getForm = document.getElementById('noteForm');
 const heading = document.getElementById('heading');
 const about = document.getElementById('about');
 const NoteArray = [];
+//display created notes
 function displayNote() {
     const noteCan = document.querySelector('.notes-container');
     let displayNotes = JSON.parse(localStorage.getItem('NOTES') || '[]');
     noteCan.innerHTML = '';
     displayNotes.forEach((note) => {
         const notePost = document.createElement('div');
-        notePost.innerHTML = `
-            <h3>${note.heading}</h3>
-            <p>About: ${note.about}</p>
+        notePost.innerHTML =
+            `
+        <div class="postflex">
+            <h2>Title:${note.heading}</h2>
+            <h3>About:${note.about}</h3>
             <button class="edit-btn" onclick="editNote(${note.id})">Edit</button>
             <button class="delete-btn" onclick="deleteNote(${note.id})">Delete</button>
-        `;
+            </div>
+            `;
         noteCan.appendChild(notePost);
     });
 }
 displayNote();
+//Form
 if (getForm) {
     getForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        //check existing note 1st
+        const exist = JSON.parse(localStorage.getItem('NOTES') || '[]');
         const Note = heading.value.trim() !== "" && about.value.trim() !== "";
         if (Note) {
+            //creating a new note
             const newNote = {
-                id: NoteArray.length + 1,
+                id: exist.length + 1,
                 heading: heading.value.trim(),
                 about: about.value.trim()
             };
-            NoteArray.push(newNote);
+            exist.push(newNote);
+            localStorage.setItem('NOTES', JSON.stringify(exist));
+            heading.value = '';
+            about.value = '';
+            displayNote();
         }
-        localStorage.setItem('NOTES', JSON.stringify(NoteArray));
-        heading.value = '';
-        about.value = '';
-        displayNote();
     });
 }
-function update(notes) {
-    localStorage.setItem('NOTES', JSON.stringify(notes));
+//general update function
+function update(NoteArray) {
+    localStorage.setItem('NOTES', JSON.stringify(NoteArray));
 }
+//DELETE FUNCTION
 function deleteNote(id) {
     let displayNotes = JSON.parse(localStorage.getItem('NOTES') || '[]');
+    //findIndex intresting array method  to splice
     const index = displayNotes.findIndex((note) => note.id === id);
     if (index !== -1) {
-        const confirmDelete = confirm('Are you sure you want to delete this note?');
+        const confirmDelete = confirm('Are you sure ABOUT DELETING this note?');
         if (confirmDelete) {
             displayNotes.splice(index, 1);
             update(displayNotes);
@@ -52,16 +63,20 @@ function deleteNote(id) {
         }
     }
 }
+;
+//EDIT FUNCTION
 function editNote(id) {
     let displayNotes = JSON.parse(localStorage.getItem('NOTES') || '[]');
-    if (id >= 0 && id < displayNotes.length) {
-        const editedNote = displayNotes.splice(id, 1)[0];
+    const index = displayNotes.findIndex((note) => note.id === id);
+    if (index !== -1) {
+        const editedNote = displayNotes.splice(index, 1)[0];
         localStorage.setItem('NOTES', JSON.stringify(displayNotes));
-        // update(displayNotes)
+        update(displayNotes);
         displayNote();
-        const headingInput = document.getElementById('heading');
-        const aboutInput = document.getElementById('about');
-        headingInput.value = editedNote.heading || '';
-        aboutInput.value = editedNote.about || '';
+        heading.value = editedNote.heading || '';
+        about.value = editedNote.about || '';
     }
+}
+// single id page
+function SingleNote() {
 }
