@@ -23,7 +23,6 @@ function displayNote() {
 
     displayNotes.forEach((note: NoteBook) => {
         const notePost = document.createElement('div');
-
         notePost.innerHTML = 
         `
        <div class="noteContainer">
