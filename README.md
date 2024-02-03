@@ -14,3 +14,6 @@ Updates a note by its ID
 
 
 Deletes a note by its ID 
+
+
+AND RESPONSIVE
