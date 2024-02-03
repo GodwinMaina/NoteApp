@@ -222,7 +222,6 @@ input[type="submit"]:hover {
     .noteContainer{
        width:55vw;
        background-color: rgb(111, 196, 111);
-    
     }
 
     .noteContainerId{
@@ -232,8 +231,7 @@ input[type="submit"]:hover {
         width: 50vw;
         min-height: 40vh;
         text-align: center;
-        font-size: 30px;
-      
+        font-size: 29px;
      }
  
 }

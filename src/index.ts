@@ -122,12 +122,10 @@ function editNote(id: number) {
 
 // singleNote.html page per id
 document.addEventListener('DOMContentLoaded', function () {
-
     const urlParams = new URLSearchParams(window.location.search);
     const noteId = urlParams.get('id');
 
     if (noteId !== null) {
-
         const allNotes = JSON.parse(localStorage.getItem('NOTES') || '[]') as NoteBook[];
         const noted = allNotes.find(note => note.id.toString() === noteId);
 
@@ -138,12 +136,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 singleNote.innerHTML = `
                 <div class="noteContainerId">
-                <h3>NOTE ${noted.id}</h3>
+                <h3>NOTE:${noted.id}</h3>
                     <h3>Title: ${noted.heading}</h3>
                     <h3>About: ${noted.about}</h3>
                 </div>    
                 `;
             } 
         }}});
+
+
 
 

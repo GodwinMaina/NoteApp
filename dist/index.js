@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (singleNote) {
                 singleNote.innerHTML = `
                 <div class="noteContainerId">
-                <h3>NOTE ${noted.id}</h3>
+                <h3>NOTE:${noted.id}</h3>
                     <h3>Title: ${noted.heading}</h3>
                     <h3>About: ${noted.about}</h3>
                 </div>    
